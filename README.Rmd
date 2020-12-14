@@ -35,12 +35,16 @@ remotes::install_github("fcsest/shopper", force = T)
 ```
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Example of a receipt SEFAZ-RS:
+[Receipt SEFAZ-RS]("https://github.com/fcsest/shopper/raw/master/inst/app/www/example_full.png")
+
+Cropping the QR Code and setting the image cropped as parameter to `shopper::get_qrcode_text()`...
+
 
 ```{r example}
 library(shopper)
 
-image_example <- "https://github.com/fcsest/shopper/inst/app/www/example.png"
+image_example <- "https://github.com/fcsest/shopper/raw/master/inst/app/www/example.png"
 
 # Read QR Code of impressed receipt 
 my_df <- get_qrcode_text(image) %>% 

@@ -1,12 +1,12 @@
-#' @title Get receipt data from link of SEFAZ-RS
+#' @title Get link of QR Code on SEFAZ-RS receipt
 #'
-#' @usage get_sefaz_rs_rdata(url)
+#' @usage get_qrcode_text(image)
 #'
-#' @param url A receipt url of https://www.sefaz.rs.gov.br/
+#' @param image A image file of QR Code in SEFAZ-RS receipt.
 #'
-#' @description Get data from receipt in https://www.sefaz.rs.gov.br/
+#' @description Get text from QR Code on SEFAZ-RS receipt.
 #'
-#' @aliases receipt
+#' @aliases qrcode
 #'
 #' @export
 #' @importFrom magick image_read
