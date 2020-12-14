@@ -35,10 +35,15 @@ remotes::install_github("fcsest/shopper", force = T)
 ```
 ## Example
 
-Example of a receipt SEFAZ-RS:
-[Receipt SEFAZ-RS]("https://github.com/fcsest/shopper/raw/master/inst/app/www/example_full.png")
+This package helps in collecting data from SEFAZ-RS receipts, below is an example of a complete receipt:
 
-Cropping the QR Code and setting the image cropped as parameter to `shopper::get_qrcode_text()`...
+[Full Receipt SEFAZ-RS](https://github.com/fcsest/shopper/raw/master/inst/app/www/example_full.png)
+
+To collect the data we need to cropping the QR Code like this:
+
+[Cropped SEFAZ-RS](https://github.com/fcsest/shopper/raw/master/inst/app/www/example.png)
+
+And setting the image cropped as parameter to `shopper::get_qrcode_text()`...
 
 
 ```{r example}
@@ -49,4 +54,6 @@ image_example <- "https://github.com/fcsest/shopper/raw/master/inst/app/www/exam
 # Read QR Code of impressed receipt 
 my_df <- get_qrcode_text(image) %>% 
   get_sefaz_rs_rdata()
+
+head(my_df)
 ```

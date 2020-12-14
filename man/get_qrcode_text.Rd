@@ -5,7 +5,7 @@
 \alias{qrcode}
 \title{Get link of QR Code on SEFAZ-RS receipt}
 \usage{
-get_qrcode_text(url)
+get_qrcode_text(image)
 }
 \arguments{
 \item{image}{A image file of QR Code in SEFAZ-RS receipt.}

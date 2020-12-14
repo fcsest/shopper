@@ -29,17 +29,16 @@ global_partials <- quote({shopper::global()})
 #' @title Global
 #'
 #' @noRd
-#' @importFrom scrypt hashPassword
 global <- function(){
 
-  credentials <<- data.frame(
-    user = c("teste", "teste2"), # mandatory
-    password = c(hashPassword("teste123"), hashPassword("teste321")), # mandatory
-    is_hashed_password = TRUE,
-    start = c(NA, NA), # optinal (all others)
-    expire = c(NA, NA),
-    admin = c(FALSE, TRUE),
-    comment = "Simple applications.",
-    stringsAsFactors = FALSE
-  )
+  # credentials <<- data.frame(
+  #   user = c("teste", "teste2"), # mandatory
+  #   password = c(hashPassword("teste123"), hashPassword("teste321")), # mandatory
+  #   is_hashed_password = TRUE,
+  #   start = c(NA, NA), # optinal (all others)
+  #   expire = c(NA, NA),
+  #   admin = c(FALSE, TRUE),
+  #   comment = "Simple applications.",
+  #   stringsAsFactors = FALSE
+  # )
 }
