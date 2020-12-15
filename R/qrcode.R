@@ -16,7 +16,7 @@
 get_qrcode_text <- function(image){
 
   image_read(image) %>%
-    qr_scan(flop = F, no_js = F, plot = T) %>%
+    qr_scan(flop = F, no_js = F, plot = F) %>%
     pluck("values") %>%
     pull(value)
 }

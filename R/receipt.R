@@ -39,12 +39,15 @@ get_sefaz_rs_rdata <- function(url){
                                str_extract(Produto,
                                            "[0-9]+(?=(?i)(kg|g|l|ml| un))") %>%
                                  str_squish() %>%
-                                 str_remove(",") %>%
+                                 str_replace(",", ".") %>%
                                  as.numeric() %>%
-                                 "*"(as.numeric(str_remove(Quantidade,
-                                                           ","))),
+                                 "*"(as.numeric(str_replace(Quantidade,
+                                                            ",",
+                                                            "."))),
                                Quantidade %>%
-                                 str_remove(",")),
+                                 str_replace(",",
+                                             ".") %>%
+                                 as.numeric()),
            Medida = ifelse(str_detect(Produto,
                                       "[0-9]+(?=(?i)(kg|g|l|ml| un))"),
                            str_extract(Produto,
@@ -62,6 +65,16 @@ get_sefaz_rs_rdata <- function(url){
              str_remove_all("([0-9]+(?i)( kg| g| l| ml| un| c/|kg|g|l|ml|un|c/))|(c/[0-9]+ un)|( kg| g| l| ml| un| c/|kg|g|l|ml|un|c/)$|( b )"))
 }
 
+
+#' Parse an html table into a data frame
+#'
+#' @param x A node, node set or document.
+#' @param header Use first row as header? If NA, will use first row if it consists of th tags.
+#' @param trim Remove leading and trailing whitespace within each cell?
+#' @param fill If TRUE, automatically fill rows with fewer than the maximum number of columns with NAs.
+#' @param dec The character used as decimal mark.
+#'
+#' @export
 xml_table <- function(x, header = NA, trim = TRUE, fill = FALSE, dec = ".") {
   if ("xml_nodeset" %in% class(x)) {
     return(lapply(x, xml_table, header = header, trim = trim, fill = fill, dec = dec))

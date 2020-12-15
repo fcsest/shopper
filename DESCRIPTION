@@ -1,12 +1,12 @@
 Package: shopper
-Title: shopper
+Title: shopper - A package to help in get data from SEFAZ-RS receipts
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Fernando",
            family = "Souza",
            role = c("aut", "cre"),
            email = "fcs.est@gmail.com")
-Description: A package to help in get data from SEFAZ-RS receipts.
+Description: A package to help in getting data from SEFAZ-RS receipts.
 License: MIT + file LICENSE
 Imports: 
     config (>= 0.3),
