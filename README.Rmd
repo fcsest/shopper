@@ -49,14 +49,18 @@ To collect the data we need to cropping the QR Code like this:
 And setting the image cropped as parameter to `shopper::get_qrcode_text()`...
 
 ```{r example, echo=TRUE}
-library(shopper)
+# Importing pipe
 library(magrittr)
+# Importing the shopper package
+library(shopper)
 
+# QR Code cropped
 image_example <- "https://github.com/fcsest/shopper/raw/master/inst/app/www/example.png"
 
 # Read QR Code of impressed receipt 
 my_df <- get_qrcode_text(image_example) %>% 
   get_sefaz_rs_rdata()
 
+# Structure of data frame
 str(my_df)
 ```
